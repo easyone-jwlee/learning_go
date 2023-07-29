@@ -30,3 +30,13 @@ hey_inst:
 goimports_inst:
 	go install golang.org/x/tools/cmd/goimports@latest
 .PHONY:goimports_inst
+
+golint_inst:
+	go install golang.org/x/lint/golint@latest
+.PHONY:golint_inst
+
+lint_inst:
+	# binary will be $(go env GOPATH)/bin/golangci-lint
+	sudo curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.53.3
+
+.PHONY:lint_inst
